@@ -5,10 +5,12 @@
     })
 </script>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddressModal">
-    Add New
-</button>
+<!-- Button trigger modal
+Add a button to toggle to Modal like seen bellow.
+-->
+{{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddressModal">--}}
+{{--    Add New--}}
+{{--</button>--}}
 
 <div class="modal fade" id="AddressModal" tabindex="-1" role="dialog" aria-labelledby="AddressModalLabel"
      aria-hidden="true">
