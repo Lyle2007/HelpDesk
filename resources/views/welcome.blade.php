@@ -1,7 +1,6 @@
 @include('includes.header')
-    <body>
+@include('includes.nav-top')
     <div class="container pt-4">
         @component('components.form')@endcomponent
     </div>
-    </body>
 @include('includes.footer')
