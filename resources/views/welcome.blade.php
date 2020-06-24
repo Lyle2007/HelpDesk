@@ -3,37 +3,65 @@
 <!-- Begin page content -->
 <main role="main" class="container">
     <div class="row pt-4">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="card">
-                <div class="card-header">Current Tickets</div>
+                <div class="card-header">Requests</div>
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            New
-                            <span class="badge badge-danger badge-pill" style="font-size: medium">14</span>
+                            <span>New</span>
+                            <span> 1 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Open
-                            <span class="badge badge-success badge-pill" style="font-size: medium">3</span>
+                            <span>Open</span>
+                            <span> 1 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Pending Customer Response
-                            <span class="badge badge-warning badge-pill" style="font-size: medium">5</span>
+                            <span>Pending</span>
+                            <span> 1 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Special Status
-                            <span class="badge badge-secondary badge-pill" style="font-size: medium">1</span>
+                            <span>Other</span>
+                            <span> 1 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Resolved
-                            <span class="badge badge-secondary badge-pill" style="font-size: medium">57</span>
+                            <span>Resolved</span>
+                            <span> 1 </span>
                         </li>
                     </ul>
                 </div>
-                <div class="card-footer"></div>
             </div>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">Cases</div>
+                <div class="card-body p-0">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>New</span>
+                            <span> 1 </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Open</span>
+                            <span> 1 </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Pending</span>
+                            <span> 1 </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Other</span>
+                            <span> 1 </span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>Resolved</span>
+                            <span> 1 </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">Recent Actions</div>
                 <div class="card-body p-0">
@@ -62,7 +90,58 @@
                         </li>
                     </ul>
                 </div>
-                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <span>Metrics</span>
+                </div>
+                <div class="card-body" style="position: relative; width:100%">
+                    {{-- Sizes of Charts cannot be changed through the canvas --}}
+                    <canvas id="myChart" style="width: 100%; height: 100%; display: block;"></canvas>
+                    <script>
+                        var ctx = document.getElementById('myChart').getContext('2d');
+                        var myChart = new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                datasets: [{
+                                    label: '# of Votes',
+                                    data: [12, 19, 3, 5, 2, 3],
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)',
+                                        'rgba(54, 162, 235, 0.2)',
+                                        'rgba(255, 206, 86, 0.2)',
+                                        'rgba(75, 192, 192, 0.2)',
+                                        'rgba(153, 102, 255, 0.2)',
+                                        'rgba(255, 159, 64, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)',
+                                        'rgba(54, 162, 235, 1)',
+                                        'rgba(255, 206, 86, 1)',
+                                        'rgba(75, 192, 192, 1)',
+                                        'rgba(153, 102, 255, 1)',
+                                        'rgba(255, 159, 64, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
             </div>
         </div>
     </div>
