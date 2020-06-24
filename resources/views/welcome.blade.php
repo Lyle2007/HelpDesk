@@ -101,7 +101,7 @@
                 </div>
                 <div class="card-body" style="position: relative; width:100%">
                     {{-- Sizes of Charts cannot be changed through the canvas --}}
-                    <canvas id="myChart" style="width: 100%; height: 100%; display: block;"></canvas>
+                    <canvas id="myChart" style="width: 500; height: 500; display: block;"></canvas>
                     <script>
                         var ctx = document.getElementById('myChart').getContext('2d');
                         var myChart = new Chart(ctx, {
@@ -131,10 +131,13 @@
                                 }]
                             },
                             options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
                                 scales: {
                                     yAxes: [{
                                         ticks: {
-                                            beginAtZero: true
+                                            beginAtZero: true,
+                                            stepSize: 5,
                                         }
                                     }]
                                 }
