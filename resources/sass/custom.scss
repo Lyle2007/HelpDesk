@@ -1,0 +1,41 @@
+// Variables
+@import 'variables';
+
+.bg-school-primary{
+    background-color: #FFF;
+    color: $school-secondary;
+}
+
+.bg-school-secondary{
+    background-color: $school-secondary;
+}
+
+.card-header-primary {
+    font-family: Verdana, 'Montserrat', sans-serif;
+    font-size: 16px;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #fff;
+    color: $school-secondary;
+    text-outline: 1px 1px black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+// Changes highlighting when selecting form-inputs
+.form-control:focus {
+    border-color: rgb(255,243,214);
+    box-shadow: 0 0 0 0.2rem rgb(255, 243, 214);
+}
+
+.btn-primary {
+    color: $school-secondary;
+    background-color: rgba(254, 197, 46, 0.60);
+    border-color: rgb(255,243,214);
+}
+
+.btn-primary:hover {
+    color: #252122;
+    background-color: rgba(254, 197, 46, 0.69);
+    border-color: #ffe97c;
+}
+

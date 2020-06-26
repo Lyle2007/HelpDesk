@@ -7,6 +7,7 @@
     <title>{{config('app.name')}} - @yield('title')</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     <style>

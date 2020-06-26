@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md  bg-school-primary">
-    <a class="navbar-brand" href="#">
+<nav class="navbar navbar-light navbar-expand-md  bg-school-primary">
+    <a class="navbar-brand" href="{{ url('/') }}">
         <img src="{{asset('img/school_district.jpeg')}}" width="130" height="65" class="d-inline-block align-top p-0 m-0 ml-2" alt="">
     </a>
 {{--    <a class="navbar-brand" style="color:#fcb900 " href="{{ url('/') }}">{{ config('app.name') }}</a>--}}
@@ -13,7 +13,7 @@
         </ul>
         <ul class="navbar-nav ml-2 mr-3">
             <li class="nav-item m-auto">
-                <i class="fas fa-2x fa-cog hover-cog" style="color: #fff;"></i>
+                <a href="{{ url('/dashboard') }}"><i class="fas fa-2x fa-toolbox" style="color: grey;"></i></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-md-0">

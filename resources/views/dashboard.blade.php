@@ -11,11 +11,11 @@
 @endsection
 
 @section('content')
-    <main role="main" class="container">
+    <main role="main" class="container-fluid">
     <div class="row pt-4">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header-primary d-flex justify-content-between align-items-center">
                     <span>Tickets</span>
                 </div>
                 <div class="card-body p-0">
@@ -50,7 +50,7 @@
         </div>
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card-header-primary d-flex justify-content-between align-items-center">
                     <span>My Tickets</span>
                 </div>
                 <div class="card-body p-0">
@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Recent Actions</div>
+                <div class="card-header-primary">Recent Actions</div>
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -121,7 +121,7 @@
     <div class="row pt-4">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header-primary">
                     <span>Solution Areas</span>
                 </div>
                 <div class="card-body p-0">
@@ -171,7 +171,7 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header-primary">
                     <span>Metrics</span>
                 </div>
                 <div class="card-body" style="position: relative; width:100%">
