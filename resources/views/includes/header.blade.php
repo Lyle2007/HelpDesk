@@ -4,18 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{config('app.name')}}</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-    <!-- Styles -->
-    <style>
-
-    </style>
+    <title>{{config('app.name')}} - @yield('title')</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+
+    <style>
+        .hover-cog:hover{
+            -webkit-animation: fa-spin 2s linear infinite;
+            animation: fa-spin 2s linear infinite;
+        }
+
+    </style>
 
 </head>
 <body>

@@ -1,11 +1,23 @@
-@include('includes.header')
-@include('includes.nav-top')
-<!-- Begin page content -->
-<main role="main" class="container">
+@extends('layouts.app')
+
+@section('title', 'Dashboard')
+
+@section('css')
+
+@endsection
+
+@section('js')
+
+@endsection
+
+@section('content')
+    <main role="main" class="container">
     <div class="row pt-4">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">Requests</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Tickets</span>
+                </div>
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -30,11 +42,17 @@
                         </li>
                     </ul>
                 </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <span>Create</span>
+                    <span>View All</span>
+                </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">Cases</div>
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>My Tickets</span>
+                </div>
                 <div class="card-body p-0">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -58,6 +76,10 @@
                             <span> 1 </span>
                         </li>
                     </ul>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <span>Create</span>
+                    <span>View All</span>
                 </div>
             </div>
         </div>
@@ -90,11 +112,64 @@
                         </li>
                     </ul>
                 </div>
+                <div class="card-footer d-flex align-items-right">
+                    <span>View More</span>
+                </div>
             </div>
         </div>
     </div>
     <div class="row pt-4">
-        <div class="col-12">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <span>Solution Areas</span>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table">
+                        <thead>
+                        <tr hidden>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Laptops</td>
+                            <td>Desktop</td>
+                            <td>Phones</td>
+                        </tr>
+                        <tr>
+                            <td>I-Pads</td>
+                            <td>Android</td>
+                            <td>Chromebooks</td>
+                        </tr>
+                        <tr>
+                            <td>Google Classroom</td>
+                            <td>Microsoft Teams</td>
+                            <td>I-Ready</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Zoom</td>
+                            <td>Email</td>
+                        </tr>
+                        <tr>
+                            <td>Enrollment</td>
+                            <td>3D Printing</td>
+                            <td>Password/Login</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <span>Create</span>
+                    <span>View All</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
                     <span>Metrics</span>
@@ -107,9 +182,9 @@
                         var myChart = new Chart(ctx, {
                             type: 'bar',
                             data: {
-                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                labels: ['Waste Pickup', 'Use Regulation', 'Signage', 'Utility', 'Dilapidated ', 'Junk Vehicle'],
                                 datasets: [{
-                                    label: '# of Votes',
+                                    label: '# of Active Tickets',
                                     data: [12, 19, 3, 5, 2, 3],
                                     backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
@@ -150,4 +225,6 @@
     </div>
 
 </main>
-@include('includes.footer')
+@endsection
+
+

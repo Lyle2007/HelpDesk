@@ -18,3 +18,11 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::resource('form', 'FormController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/support', function(){
+    return view('createTicket');
+});
