@@ -8,6 +8,9 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    @yield('css')
+
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
     <style>

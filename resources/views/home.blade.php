@@ -7,6 +7,13 @@
 @endsection
 
 @section('js')
+    <script>
+        function ownershipFunction() {
+            var ownership = document.getElementById("OwnershipInput").value;
+            (ownership === "2") ? document.getElementById("SchoolDevices").style.display = "block" : document.getElementById("SchoolDevices").style.display = "none";
+            (ownership === "1") ? document.getElementById("GuardianDevices").style.display = "block" : document.getElementById("GuardianDevices").style.display = "none";
+        }
+    </script>
 
 @endsection
 
@@ -75,7 +82,9 @@
                             </select>
                             <small id="OwnershipHelp" class="form-text text-muted">Who owns the device you are using?</small>
                         </div>
-                        <div class="form-group col-md-6">
+                        {{-- Select the device provided by the school --}}
+                        <div id="SchoolDevices"
+                             class="form-group col-md-6" style="display:none">
                             <label for="SchoolDeviceInput">School Device</label>
                             <select id="SchoolDeviceInput" class="form-control">
                                 <option selected>Choose the device...</option>
@@ -86,9 +95,11 @@
                             </select>
                             <small id="OwnershipHelp" class="form-text text-muted">Only select if provided by school district.</small>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="OwnershipInput">Guardian Owned Device</label>
-                            <select id="OwnershipInput" class="form-control">
+                        {{-- Select the device that is owned by the guardian --}}
+                        <div id="GuardianDevices"
+                             class="form-group col-md-6" style="display:none" >
+                            <label for="OwnedInput">Guardian Owned Device</label>
+                            <select id="OwnedInput" class="form-control">
                                 <option selected>Choose the device...</option>
                                 <option>I-Pad</option>
                                 <option>I-Phone</option>
@@ -100,8 +111,8 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="OwnershipInput">How are you connecting to the Internet?</label>
-                            <select id="OwnershipInput" class="form-control">
+                            <label for="ConnectingInput">How are you connecting to the Internet?</label>
+                            <select id="ConnectingInput" class="form-control">
                                 <option selected>Choose the device...</option>
                                 <option>School Provided Hotspot</option>
                                 <option>Guardian Owned Wireless</option>
@@ -127,12 +138,7 @@
             </div>
         </div>
 
-        <script>
-            function ownershipFunction() {
-                var ownership = document.getElementById("OwnershipInput").value;
-                console.log(ownership);
-            }
-        </script>
+
 
 
 @endsection
