@@ -8,7 +8,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            StatesTableSeeder::class
+            StatesTableSeeder::class,
+            PermissionsDemoSeeder::class
         ]);
     }
 }
