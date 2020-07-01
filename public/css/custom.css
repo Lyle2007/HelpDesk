@@ -57,3 +57,9 @@
   box-shadow: 0 0 0 0.2rem rgba(254, 197, 47, 0.5);
 }
 
+@media (min-width: 1300px) {
+  .d-FeaturedPost-block {
+    display: block !important;
+  }
+}
+

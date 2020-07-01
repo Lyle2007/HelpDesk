@@ -14,34 +14,11 @@
     <div class="container col-12 pt-4">
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="p-0 m-0">Contact our Help Desk</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Technology Issue</h5>
-                                        <p class="card-text">Issues relating to I-Pads, Laptops, chromebooks, and other devices used for virtual learning.</p>
-                                        <a href="#" class="btn btn-primary"  data-toggle="modal" data-target="#TechnologyModal">Submit a Ticket</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @component('components.Cards.ContactHelpDesk')@endcomponent
+                @component('components.Cards.article-card-featured')@endcomponent
             </div>
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="p-0 m-0">Troubleshoot Here</h5>
-                    </div>
-                    <div class="card-body">
-
-                    </div>
-                </div>
+                @component('components.Cards.blog-main')@endcomponent
             </div>
         </div>
     </div>

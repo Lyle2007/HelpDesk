@@ -1,6 +1,8 @@
 // Variables
 @import 'variables';
 
+
+
 .bg-school-primary{
     background-color: #FFF;
     color: $school-secondary;
@@ -55,3 +57,11 @@
     border-color: #808080;
     box-shadow: 0 0 0 0.2rem rgba(254, 197, 47, 0.5);
 }
+
+// Media Imports
+
+// Gets rid of the images inside of featured posts when screensize is bellow a certain threshold.
+@media (min-width: 1300px){
+    .d-FeaturedPost-block {
+        display: block !important;
+    }}
