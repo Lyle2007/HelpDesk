@@ -14,27 +14,25 @@ class CreateSupportTicketTable extends Migration
     public function up()
     {
         Schema::create('support_ticket', function (Blueprint $table) {
-            $table->id('id');
-            //Ticket Details
-            $table->text('TicketNumber')->unique()->nullable();
+            $table->integer('TicketNumber');
             $table->string('Status')->default('Open');
             $table->text('Tags')->nullable();
             $table->integer('AssignedTo')->nullable();
             //Guardian Info
-            $table->string('GuardianFirstName', 50);
-            $table->string('GuardianLastName', 50);
-            $table->string('GuardianEmail', 50);
-            $table->string('GuardianPhone', 50);
-            $table->string('GuardianDevice', 50)->nullable();
+            $table->string('GuardianFirstName');
+            $table->string('GuardianLastName');
+            $table->string('GuardianEmail');
+            $table->string('GuardianPhone');
+            $table->string('GuardianDevice')->nullable();
             //Student Info
-            $table->string('StudentFirstName', 50);
-            $table->string('StudentLastName', 50);
-            $table->string('StudentSchool', 50);
-            $table->integer('StudentGrade');
+            $table->string('StudentFirstName');
+            $table->string('StudentLastName');
+            $table->string('StudentSchool');
+            $table->integer('StudentGrade')->unsigned();
             //Technology Info
-            $table->string('DeviceOwnership', 100);
-            $table->string('SchoolDevice', 100)->nullable();
-            $table->string('ConnectionType', 245);
+            $table->string('DeviceOwnership');
+            $table->string('SchoolDevice')->nullable();
+            $table->string('ConnectionType');
             //Misc
             $table->longText('IssueDescription');
 

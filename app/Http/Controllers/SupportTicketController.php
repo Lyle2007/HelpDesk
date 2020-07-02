@@ -3,31 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\SupportTicket;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SupportTicketController extends Controller
 {
     public function store(Request $request)
     {
+
         SupportTicket::create(request()->validate([
-            'TicketNumber'      => 'nullable',
-            'Status'            => '',
-            'Tags'              => '',
+            'Tags'              => 'nullable',
             'AssignedTo'        => 'nullable',
-            'GuardianFirstName' => '',
-            'GuardianLastName'  => '',
-            'StudentFirstName'  => '',
-            'StudentLastName'   => '',
-            'GuardianEmail'     => '',
-            'GuardianPhone'     => '',
+            'GuardianFirstName' => 'required',
+            'GuardianLastName'  => 'required',
+            'StudentFirstName'  => 'required',
+            'StudentLastName'   => 'required',
+            'GuardianEmail'     => 'required',
+            'GuardianPhone'     => 'nullable',
             'GuardianDevice'    => 'nullable',
-            'StudentSchool'     => '',
-            'StudentGrade'      => '',
-            'DeviceOwnership'   => '',
+            'StudentSchool'     => 'required',
+            'StudentGrade'      => 'required',
+            'DeviceOwnership'   => 'nullable',
             'SchoolDevice'      => 'nullable',
-            'ConnectionType'    => '',
-            'IssueDescription'  => ''
+            'ConnectionType'    => 'required',
+            'IssueDescription'  => 'required'
         ]));
+
         return redirect(route('home'));
     }
 }
