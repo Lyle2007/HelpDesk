@@ -16,16 +16,16 @@ class CreateSupportTicketTable extends Migration
         Schema::create('support_ticket', function (Blueprint $table) {
             $table->id('id');
             //Ticket Details
-            $table->text('TicketNumber')->unique();
-            $table->string('Status');
-            $table->text('Tags');
-            $table->integer('AssignedTo');
+            $table->text('TicketNumber')->unique()->nullable();
+            $table->string('Status')->default('Open');
+            $table->text('Tags')->nullable();
+            $table->integer('AssignedTo')->nullable();
             //Guardian Info
             $table->string('GuardianFirstName', 50);
             $table->string('GuardianLastName', 50);
             $table->string('GuardianEmail', 50);
             $table->string('GuardianPhone', 50);
-            $table->string('GuardianDevice', 50);
+            $table->string('GuardianDevice', 50)->nullable();
             //Student Info
             $table->string('StudentFirstName', 50);
             $table->string('StudentLastName', 50);
@@ -33,7 +33,7 @@ class CreateSupportTicketTable extends Migration
             $table->integer('StudentGrade');
             //Technology Info
             $table->string('DeviceOwnership', 100);
-            $table->string('SchoolDevice', 100);
+            $table->string('SchoolDevice', 100)->nullable();
             $table->string('ConnectionType', 245);
             //Misc
             $table->longText('IssueDescription');

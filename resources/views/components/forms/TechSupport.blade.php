@@ -1,8 +1,8 @@
 <script>
     function ownershipFunction() {
-        var ownership = document.getElementById("OwnershipInput").value;
-        (ownership === "2") ? document.getElementById("SchoolDevices").style.display = "block" : document.getElementById("SchoolDevices").style.display = "none";
-        (ownership === "1") ? document.getElementById("GuardianDevices").style.display = "block" : document.getElementById("GuardianDevices").style.display = "none";
+        var ownership = document.getElementById("DeviceOwnershipInput").value;
+        (ownership === "2") ? document.getElementById("SchoolDevice").style.display = "block" : document.getElementById("SchoolDevice").style.display = "none";
+        (ownership === "1") ? document.getElementById("GuardianDevice").style.display = "block" : document.getElementById("GuardianDevice").style.display = "none";
     }
 </script>
 <div class="modal fade" id="TechnologyModal" tabindex="-1" role="dialog" aria-labelledby="TechnologyLabel" aria-hidden="true">
@@ -12,13 +12,13 @@
             <div class="modal-content">
         <div class="card ">
             <div class="card-header-primary">
-                New Ticket
+                Technology Support: Ticket
                 <button type="button" class="close" data-dismiss="modal" data-target="#TechnologyModal">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{url('form')}}">
+                <form method="POST" action="{{url('SupportTicket')}}">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
@@ -32,32 +32,32 @@
                                    required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="FirstNameStudentInput">Student First Name</label>
-                            <input type="text" class="form-control" id="FirstNameStudentInput" name="FirstNameStudent"
+                            <label for="StudentFirstName">Student First Name</label>
+                            <input type="text" class="form-control" id="StudentFirstNameInput" name="StudentFirstName"
                                    required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="LastNameStudentInput">Student Last Name</label>
-                            <input type="text" class="form-control" id="LastNameStudentInput" name="LastNameStudent"
+                            <label for="StudentLastNameInput">Student Last Name</label>
+                            <input type="text" class="form-control" id="StudentLastNameInput" name="StudentLastName"
                                    required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="EmailInput">Guardian Email</label>
-                            <input type="email" class="form-control" id="EmailInput" name="Email"
+                            <label for="GuardianEmailInput">Guardian Email</label>
+                            <input type="email" class="form-control" id="GuardianEmailInput" name="GuardianEmail"
                                    placeholder="Example@email.com" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="PhoneInput">Guardian Phone</label>
-                            <input type="text" class="form-control" id="PhoneInput" name="Phone"
-                                   placeholder="(662) 555-5555">
+                            <label for="GuardianPhoneInput">Guardian Phone</label>
+                            <input type="text" class="form-control" id="GuardianPhoneInput" name="GuardianPhone"
+                                   placeholder="(662)555-5555">
                             <small id="PhoneHelp" class="form-text text-muted">This is an optional field.</small>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="SchoolInput">Students School</label>
-                            <select id="SchoolInput" class="form-control">
-                                <option selected>Choose a school...</option>
+                            <label for="StudentSchoolInput">Students School</label>
+                            <select id="StudentSchoolInput" class="form-control" name="StudentSchool">
+                                <option selected></option>
                                 <option>Sudduth</option>
                                 <option>Henderson Ward Stewart</option>
                                 <option>Overstreet</option>
@@ -68,16 +68,16 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="GradeInput">Students Grade</label>
-                            <input type="number" class="form-control" id="GradeInput" name="Grade" placeholder="4th"
+                            <label for="StudentGradeInput">Students Grade</label>
+                            <input type="number" class="form-control" id="StudentGradeInput" name="StudentGrade" placeholder="4th"
                                    required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="OwnershipInput">Device Ownership</label>
-                            <select id="OwnershipInput" class="form-control" onchange="ownershipFunction()">
-                                <option value="0">Choose Option...</option>
+                            <label for="DeviceOwnershipInput">Device Ownership</label>
+                            <select id="DeviceOwnershipInput" class="form-control" onchange="ownershipFunction()" name="DeviceOwnership">
+                                <option value="0"></option>
                                 <option value="1">I own the device being used.</option>
                                 <option value="2">The school district owns the device.</option>
                             </select>
@@ -85,11 +85,11 @@
                                 using?</small>
                         </div>
                         {{-- Select the device provided by the school --}}
-                        <div id="SchoolDevices"
+                        <div id="SchoolDevice"
                              class="form-group col-md-6" style="display:none">
                             <label for="SchoolDeviceInput">School Device</label>
-                            <select id="SchoolDeviceInput" class="form-control">
-                                <option selected>Choose the device...</option>
+                            <select id="SchoolDeviceInput" class="form-control"  name="SchoolDevice">
+                                <option selected></option>
                                 <option>Macbook</option>
                                 <option>Windows Laptop</option>
                                 <option>I-Pad</option>
@@ -99,11 +99,11 @@
                                 district.</small>
                         </div>
                         {{-- Select the device that is owned by the guardian --}}
-                        <div id="GuardianDevices"
+                        <div id="GuardianDevice"
                              class="form-group col-md-6" style="display:none">
-                            <label for="OwnedInput">Guardian Owned Device</label>
-                            <select id="OwnedInput" class="form-control">
-                                <option selected>Choose the device...</option>
+                            <label for="GuardianDeviceInput">Guardian Owned Device</label>
+                            <select id="GuardianDeviceInput" class="form-control" name="GuardianDevice">
+                                <option selected></option>
                                 <option>I-Pad</option>
                                 <option>I-Phone</option>
                                 <option>Android Phone</option>
@@ -114,9 +114,9 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="ConnectingInput">How are you connecting to the Internet?</label>
-                            <select id="ConnectingInput" class="form-control">
-                                <option selected>Choose the device...</option>
+                            <label for="ConnectionTypeInput">How are you connecting to the Internet?</label>
+                            <select id="ConnectionTypeInput" class="form-control" name="ConnectionType">
+                                <option selected></option>
                                 <option>School Provided Hotspot</option>
                                 <option>Guardian Owned Wireless</option>
                                 <option>Guardian Owned Hotspot</option>
@@ -127,8 +127,8 @@
 
                     <div class="form-row">
                         <div class="form-group col-12">
-                            <label for="IssueTextarea">Describe your Issue</label>
-                            <textarea class="form-control" id="IssueTextarea" rows="3" required></textarea>
+                            <label for="IssueDescription">Describe your Issue</label>
+                            <textarea class="form-control" id="IssueDescription" rows="3" name="IssueDescription" required></textarea>
                             <small id="IssueHelp" class="form-text text-muted">
                                 Describe your issue here, make sure to include the type of technology and grade of the
                                 student.

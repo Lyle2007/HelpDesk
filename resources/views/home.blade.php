@@ -13,6 +13,9 @@
 @section('content')
     <div class="container col-12 pt-4">
         <div class="row">
+            @if (session('error'))
+                <div class="alert alert-danger">{{ session('error') }}</div>
+            @endif
             <div class="col-md-4">
                 @component('components.Cards.ContactHelpDesk')@endcomponent
                 @component('components.Cards.article-card-featured')@endcomponent

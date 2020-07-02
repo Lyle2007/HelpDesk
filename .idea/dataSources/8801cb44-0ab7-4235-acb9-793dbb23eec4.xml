@@ -1467,30 +1467,29 @@ role_id</ColNames>
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="418" parent="351" name="TicketNumber">
       <Position>2</Position>
       <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="419" parent="351" name="Status">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;Open&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="420" parent="351" name="Tags">
       <Position>4</Position>
       <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="421" parent="351" name="AssignedTo">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="422" parent="351" name="GuardianFirstName">
@@ -1581,192 +1580,188 @@ role_id</ColNames>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="437" parent="351" name="support_ticket_id_unique">
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="438" parent="351" name="support_ticket_ticketnumber_unique">
+    <index id="437" parent="351" name="support_ticket_ticketnumber_unique">
       <ColNames>TicketNumber</ColNames>
       <Unique>1</Unique>
       <Type>hash</Type>
     </index>
-    <key id="439" parent="351" name="support_ticket_id_unique">
+    <key id="438" parent="351" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
-      <UnderlyingIndexName>support_ticket_id_unique</UnderlyingIndexName>
+      <Primary>1</Primary>
     </key>
-    <key id="440" parent="351" name="support_ticket_ticketnumber_unique">
+    <key id="439" parent="351" name="support_ticket_ticketnumber_unique">
       <ColNames>TicketNumber</ColNames>
       <UnderlyingIndexName>support_ticket_ticketnumber_unique</UnderlyingIndexName>
     </key>
-    <column id="441" parent="352" name="sequence">
+    <column id="440" parent="352" name="sequence">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="442" parent="352" name="uuid">
+    <column id="441" parent="352" name="uuid">
       <Position>2</Position>
       <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="443" parent="352" name="batch_id">
+    <column id="442" parent="352" name="batch_id">
       <Position>3</Position>
       <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="444" parent="352" name="family_hash">
+    <column id="443" parent="352" name="family_hash">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="445" parent="352" name="should_display_on_index">
+    <column id="444" parent="352" name="should_display_on_index">
       <Position>5</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>1</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="446" parent="352" name="type">
+    <column id="445" parent="352" name="type">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="447" parent="352" name="content">
+    <column id="446" parent="352" name="content">
       <Position>7</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="448" parent="352" name="created_at">
+    <column id="447" parent="352" name="created_at">
       <Position>8</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="449" parent="352" name="telescope_entries_uuid_unique">
+    <index id="448" parent="352" name="telescope_entries_uuid_unique">
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="450" parent="352" name="telescope_entries_batch_id_index">
+    <index id="449" parent="352" name="telescope_entries_batch_id_index">
       <ColNames>batch_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="451" parent="352" name="telescope_entries_family_hash_index">
+    <index id="450" parent="352" name="telescope_entries_family_hash_index">
       <ColNames>family_hash</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="452" parent="352" name="telescope_entries_type_should_display_on_index_index">
+    <index id="451" parent="352" name="telescope_entries_type_should_display_on_index_index">
       <ColNames>type
 should_display_on_index</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="453" parent="352" name="telescope_entries_created_at_index">
+    <index id="452" parent="352" name="telescope_entries_created_at_index">
       <ColNames>created_at</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="454" parent="352" name="PRIMARY">
+    <key id="453" parent="352" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sequence</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="455" parent="352" name="telescope_entries_uuid_unique">
+    <key id="454" parent="352" name="telescope_entries_uuid_unique">
       <ColNames>uuid</ColNames>
       <UnderlyingIndexName>telescope_entries_uuid_unique</UnderlyingIndexName>
     </key>
-    <column id="456" parent="353" name="entry_uuid">
+    <column id="455" parent="353" name="entry_uuid">
       <Position>1</Position>
       <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="457" parent="353" name="tag">
+    <column id="456" parent="353" name="tag">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="458" parent="353" name="telescope_entries_tags_entry_uuid_tag_index">
+    <index id="457" parent="353" name="telescope_entries_tags_entry_uuid_tag_index">
       <ColNames>entry_uuid
 tag</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="459" parent="353" name="telescope_entries_tags_tag_index">
+    <index id="458" parent="353" name="telescope_entries_tags_tag_index">
       <ColNames>tag</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="460" parent="353" name="telescope_entries_tags_entry_uuid_foreign">
+    <foreign-key id="459" parent="353" name="telescope_entries_tags_entry_uuid_foreign">
       <ColNames>entry_uuid</ColNames>
       <RefTableName>telescope_entries</RefTableName>
       <RefColNames>uuid</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="461" parent="354" name="tag">
+    <column id="460" parent="354" name="tag">
       <Position>1</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="462" parent="355" name="id">
+    <column id="461" parent="355" name="id">
       <Position>1</Position>
       <DataType>bigint(20) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="463" parent="355" name="name">
+    <column id="462" parent="355" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="464" parent="355" name="email">
+    <column id="463" parent="355" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="465" parent="355" name="email_verified_at">
+    <column id="464" parent="355" name="email_verified_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="466" parent="355" name="password">
+    <column id="465" parent="355" name="password">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="467" parent="355" name="remember_token">
+    <column id="466" parent="355" name="remember_token">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="468" parent="355" name="created_at">
+    <column id="467" parent="355" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="469" parent="355" name="updated_at">
+    <column id="468" parent="355" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="470" parent="355" name="users_email_unique">
+    <index id="469" parent="355" name="users_email_unique">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="471" parent="355" name="PRIMARY">
+    <key id="470" parent="355" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="472" parent="355" name="users_email_unique">
+    <key id="471" parent="355" name="users_email_unique">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
     </key>
