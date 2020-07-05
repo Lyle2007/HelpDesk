@@ -33,7 +33,7 @@ class SupportTicketSeeder extends Seeder
             SupportTicket::Create([
                 'Status' => $Status[rand(0,3)],
                 'Tags' => $Tags[rand(0,2)],
-                'AssignedTo' => rand(0,3),
+                'user_id' => rand(0,3),
                 'GuardianFirstName' => $faker->firstName,
                 'GuardianLastName' => $faker->lastName,
                 'StudentFirstName'  => $faker->firstName,

@@ -11,6 +11,7 @@
 @endsection
 
 @section('content')
+
     <main role="main" class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -28,7 +29,7 @@
                                 <div class="col-12">
                                     <div class="card mb-1">
                                         <div class="card-body p-1">
-                                                <div class="col-3 float-left">Ticket Number: {{ $ticket->TicketNumber }}</div>
+                                                <div class="col-3 float-left">Ticket Number: {{ $ticket->id }}</div>
                                                 <div class="col-3 float-left">{{ $ticket->updated_at->format('d/m/Y')}}</div>
                                             <div class="col-2 float-right">
                                             {{--Who is assigned to this ticket--}}
@@ -60,7 +61,7 @@
                                                                 Not Assigned
                                                             </option>
                                                             @foreach($agents as $agent)
-                                                            <option @if($agent->name == $ticket->AssignedAgent) {{'Selected'}} @else {{''}} @endif>
+                                                            <option @if($agent->name == $ticket->user['name']) {{'Selected'}} @else {{''}} @endif>
                                                                 {{$agent->name}}
                                                             </option>
                                                             @endforeach

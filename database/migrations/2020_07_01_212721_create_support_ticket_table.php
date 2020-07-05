@@ -14,10 +14,10 @@ class CreateSupportTicketTable extends Migration
     public function up()
     {
         Schema::create('support_ticket', function (Blueprint $table) {
-            $table->id('TicketNumber');
+            $table->id('id');
             $table->string('Status')->default('Open');
             $table->text('Tags')->nullable();
-            $table->integer('AssignedTo')->nullable();
+            $table->integer('user_id');
             //Guardian Info
             $table->string('GuardianFirstName');
             $table->string('GuardianLastName');

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\User;
+
 use Illuminate\Database\Eloquent\Model;
 
 class SupportTicket extends Model
@@ -11,5 +13,8 @@ class SupportTicket extends Model
 
     protected $guarded = ['TicketNumber','created_at'];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 
 }
