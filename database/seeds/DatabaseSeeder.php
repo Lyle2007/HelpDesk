@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             StatesTableSeeder::class,
             PermissionsDemoSeeder::class,
-//            SupportTicketSeeder::class
+            SupportTicketSeeder::class
         ]);
     }
 }

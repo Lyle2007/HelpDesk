@@ -24,17 +24,16 @@ class SupportTicketSeeder extends Seeder
         $DistrictDevices = ['Laptop', 'Chromebook', 'Ipad', 'Smartphone'];
         $DeviceOwnership = ['Guardian Owned', 'District Owned'];
         $ConnectionType = ['Guardian Owned Hotspot','District Owned Hotspot','Guardian Owned Wireless','Public Wireless'];
-        $Status = ['Open', 'Closed', 'Resolved', 'Waiting on Response', 'Assigned', 'Late'];
+        $Status = ['Open', 'Closed', 'Pending Parent', 'Pending Guardian'];
         $Schools = ['Henderson Ward Stewart','Armstrong Jr High','Overstreet','West', 'Starkville High'];
         $Tags = ['Google Classroom', 'Internet', 'Device'];
 
 
         foreach (range(1,100) as $index) {
             SupportTicket::Create([
-                'TicketNumber' =>$date->format('Y').'-'.$index,
-                'Status' => $Status[rand(0,5)],
+                'Status' => $Status[rand(0,3)],
                 'Tags' => $Tags[rand(0,2)],
-                'AssignedTo' => rand(0,5),
+                'AssignedTo' => rand(0,3),
                 'GuardianFirstName' => $faker->firstName,
                 'GuardianLastName' => $faker->lastName,
                 'StudentFirstName'  => $faker->firstName,
@@ -48,6 +47,8 @@ class SupportTicketSeeder extends Seeder
                 'SchoolDevice'  => $DistrictDevices[rand(0,3)],
                 'ConnectionType'  => $ConnectionType[rand(0,3)],
                 'IssueDescription'  => $faker->realText('200'),
+                'updated_at' => $faker->dateTime(),
+                'created_at' => $faker->dateTime()
         ]);
 	}
     }

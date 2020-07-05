@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class SupportTicketController extends Controller
 {
+
+
     public function store(Request $request)
     {
 

@@ -14,7 +14,7 @@ class CreateSupportTicketTable extends Migration
     public function up()
     {
         Schema::create('support_ticket', function (Blueprint $table) {
-            $table->integer('TicketNumber');
+            $table->id('TicketNumber');
             $table->string('Status')->default('Open');
             $table->text('Tags')->nullable();
             $table->integer('AssignedTo')->nullable();
