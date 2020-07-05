@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\SupportTicket;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
@@ -13,16 +16,13 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('dashboard');
+        $tickets = SupportTicket::all()
+            ->take(10);
+        return view('dashboard', ['tickets' => $tickets]);
     }
 }

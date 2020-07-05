@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-
-Route::get('/dashboard', function(){
-    return view('dashboard');
-})->name('dashboard');
+Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
 Route::resource('SupportTicket','SupportTicketController');
