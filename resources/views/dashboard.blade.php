@@ -24,17 +24,27 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($tickets->sortByDesc('updated_at') as $ticket)
+
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card mb-1">
                                         <div class="card-body p-1">
-                                                <div class="col-3 float-left">Ticket Number: {{ $ticket->id }}</div>
-                                                <div class="col-3 float-left">{{ $ticket->updated_at->format('d/m/Y')}}</div>
-                                            <div class="col-2 float-right">
-                                            {{--Who is assigned to this ticket--}}
-                                                <form action="">
-                                                    <div class="form-group m-auto">
+                                            <table class="table">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Last Updated</th>
+                                                    <th scope="col">Status</th>
+                                                    <th scope="col">Assigned To</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach ($tickets->sortByDesc('updated_at') as $ticket)
+                                                <tr>
+                                                    <td>Ticket Number: {{ $ticket->id }}</td>
+                                                    <td>{{ $ticket->updated_at->format('d/m/Y')}}</td>
+
+                                                    <td>
                                                         <select class="custom-select" required>
                                                             <option @if($ticket->Status=='Open') {{'Selected'}} @else {{''}} @endif>
                                                                 Open
@@ -49,31 +59,27 @@
                                                                 Pending Guardian
                                                             </option>
                                                         </select>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="col-2 float-right">
-                                            {{--What is the current Status of this ticket--}}
-                                                <form action="">
-                                                    <div class="form-group pl-0 m-auto">
+                                                    </td>
+                                                    <td @if($ticket->AssignedTo == 0 || Null) {{'selected'}} @else {{''}} @endif>
                                                         <select class="custom-select" required>
                                                             <option @if($ticket->AssignedTo == 0 || Null) {{'selected'}} @else {{''}} @endif>
                                                                 Not Assigned
                                                             </option>
                                                             @foreach($agents as $agent)
-                                                            <option @if($agent->name == $ticket->user['name']) {{'Selected'}} @else {{''}} @endif>
-                                                                {{$agent->name}}
-                                                            </option>
+                                                                <option @if($agent->name == $ticket->user['name']) {{'Selected'}} @else {{''}} @endif>
+                                                                    {{$agent->name}}
+                                                                </option>
                                                             @endforeach
                                                         </select>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                                    </td>
+                                                </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                     </div>
                                 </div>
                             </div>
                             </div>
-                        @endforeach
                     </div>
                 </div>
             </div>
