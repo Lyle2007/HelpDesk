@@ -17,49 +17,37 @@ class PermissionsDemoSeeder extends Seeder
         // Reset cached roles and permissions
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
-        // create permissions
-        Permission::create(['name' => 'edit articles']);
-        Permission::create(['name' => 'delete articles']);
-        Permission::create(['name' => 'publish articles']);
-        Permission::create(['name' => 'unpublish articles']);
+        // PERMISSIONS
+            //SITE ACCESS
+                Permission::create(['name' => 'view ticket dashboard']);
+                Permission::create(['name' => 'view permission dashboard']);
+            //TICKETS
+                Permission::create(['name' => 'create ticket']);
+                Permission::create(['name' => 'view own tickets']);
+                Permission::create(['name' => 'view all tickets']);
+                Permission::create(['name' => 'edit ticket']);
+                Permission::create(['name' => 'delete ticket']); //Only Soft Deletes
+                Permission::create(['name' => 'comment on other tickets']);
+                Permission::create(['name' => 'change ticket status']);
+                Permission::create(['name' => 'assign tickets']);
 
-        // create roles and assign existing permissions
-        $role0 = Role::create(['name' => 'User']);
+        //ROLES
+            // WEBMASTER
+            $role0 = Role::create(['name' => 'Webmaster']);
 
-        $role1 = Role::create(['name' => 'Curriculum Technology Specialist']);
-        $role1->givePermissionTo('edit articles');
-        $role1->givePermissionTo('delete articles');
+            // ADMIN
+            $role1 = Role::create(['name' => 'Admin']);
 
-        $role2 = Role::create(['name' => 'Admin']);
-        $role2->givePermissionTo('publish articles');
-        $role2->givePermissionTo('unpublish articles');
+            // CURRICULUM TECH SPEC.
+            $role2 = Role::create(['name' => 'Curriculum Technology Specialist']);
 
-        $role3 = Role::create(['name' => 'Webmaster']);
-        // gets all permissions via Gate::before rule; see AuthServiceProvider
+            // GUARDIAN
+            $role0 = Role::create(['name' => 'Guardian']);
 
-        // create demo users
-        $user = Factory(App\User::class)->create([
-            'name' => 'Lyle MeCaskey',
-            'email' => 'test@example.com',
-        ]);
-        $user->assignRole($role0);
+            // GUEST
+            $role4 = Role::create(['name' => 'Guest']);
 
-        $user = Factory(App\User::class)->create([
-            'name' => 'Rebecca MeCaskey',
-            'email' => 'test@CTS.com',
-        ]);
-        $user->assignRole($role1);
 
-        $user = Factory(App\User::class)->create([
-            'name' => 'Tom Hanks',
-            'email' => 'admin@Admin.com',
-        ]);
-        $user->assignRole($role2);
 
-        $user = Factory(App\User::class)->create([
-            'name' => 'Lord Farquad',
-            'email' => 'webmaster@example.com',
-        ]);
-        $user->assignRole($role3);
     }
 }

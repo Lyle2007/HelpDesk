@@ -44,11 +44,6 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="GuardianEmailInput">Guardian Email</label>
-                            <input type="email" class="form-control" id="GuardianEmailInput" name="GuardianEmail"
-                                   placeholder="Example@email.com" required>
-                        </div>
-                        <div class="form-group col-md-6">
                             <label for="GuardianPhoneInput">Guardian Phone</label>
                             <input type="text" class="form-control" id="GuardianPhoneInput" name="GuardianPhone"
                                    placeholder="(662)555-5555">
@@ -72,8 +67,6 @@
                             <input type="number" class="form-control" id="StudentGradeInput" name="StudentGrade" placeholder="4th"
                                    required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="DeviceOwnershipInput">Device Ownership</label>
                             <select id="DeviceOwnershipInput" class="form-control" onchange="ownershipFunction()" name="DeviceOwnership">
@@ -84,6 +77,8 @@
                             <small id="OwnershipHelp" class="form-text text-muted">Who owns the device you are
                                 using?</small>
                         </div>
+                    </div>
+                    <div class="form-row">
                         {{-- Select the device provided by the school --}}
                         <div id="SchoolDevice"
                              class="form-group col-md-6" style="display:none">
@@ -135,6 +130,24 @@
                             </small>
                         </div>
                     </div>
+                    @guest
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                            <label for="GuardianEmailInput">Email</label>
+                            <input type="email" class="form-control" id="GuardianEmailInput" name="GuardianEmail" required>
+                        <small id="IssueHelp" class="form-text text-muted">
+                            Email that you currently have access to.
+                        </small>
+                    </div>
+                        <div class="form-group col-md-6">
+                            <label for="CreatePassword">Create Password</label>
+                            <input class="form-control" type="password" id="CreatePassword" name="CreatePassword" required>
+                            <small id="IssueHelp" class="form-text text-muted">
+                                This password will be used with your email to login and see your ticket.
+                            </small>
+                        </div>
+                    </div>
+                    @endguest
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit Ticket</button>
